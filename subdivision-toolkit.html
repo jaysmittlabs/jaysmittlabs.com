@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subdivision Toolkit for AutoCAD — JaySmitt Labs</title>
+<meta name="description" content="Subdivision Toolkit by JaySmitt Labs — 20 powerful subdivision layout tools built for AutoCAD by a professional civil operator. Automate lot layout, road centerlines, labeling, and more.">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #0a1424;
+    --ink: #05070d;
+    --orange: #F5872E;
+    --orange-2: #ffb15a;
+    --blue: #1E8CFF;
+    --text: #e7edf6;
+    --muted: #9fb0c7;
+    --card: #101d31;
+    --line: #1e3050;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: radial-gradient(1200px 600px at 50% -10%, #12233d 0%, var(--navy) 45%, var(--ink) 100%);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 22px; }
+
+  /* top bar */
+  .topbar { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }
+  .brandmark { font-weight: 800; letter-spacing: .5px; font-size: 18px; }
+  .brandmark .jay { color: var(--blue); }
+  .brandmark .smitt { color: var(--orange); }
+  .topbar .back { font-size: 13px; color: var(--muted); text-decoration: none; }
+  .topbar .back:hover { color: var(--text); }
+
+  /* hero */
+  .hero { text-align: center; padding: 26px 0 10px; }
+  .hero img { width: 100%; max-width: 900px; height: auto; border-radius: 14px; display: block; margin: 0 auto 30px; box-shadow: 0 18px 50px rgba(0,0,0,.55); }
+  .kicker { text-transform: uppercase; letter-spacing: 3px; font-size: 12px; font-weight: 700; color: var(--orange); }
+  h1 { font-size: 52px; font-weight: 850; letter-spacing: -1.5px; margin-top: 10px; line-height: 1.05; }
+  h1 .accent { background: linear-gradient(90deg, var(--orange), var(--orange-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .lede { max-width: 640px; margin: 18px auto 0; font-size: 18px; color: var(--muted); }
+  .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
+  .btn { display: inline-block; padding: 15px 30px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 15px; transition: transform .15s ease, box-shadow .15s ease; }
+  .btn-primary { background: linear-gradient(90deg, var(--orange), var(--orange-2)); color: #1a1205; box-shadow: 0 10px 28px rgba(245,135,46,.35); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(245,135,46,.5); }
+  .btn-ghost { border: 1.5px solid var(--line); color: var(--text); }
+  .btn-ghost:hover { border-color: var(--blue); }
+
+  /* sections */
+  section { padding: 56px 0; }
+  .section-title { text-align: center; font-size: 30px; font-weight: 800; letter-spacing: -.5px; }
+  .section-sub { text-align: center; color: var(--muted); margin-top: 8px; font-size: 15px; }
+
+  .intro p { max-width: 720px; margin: 0 auto; text-align: center; font-size: 17px; color: #cdd8e8; }
+
+  /* tools grid */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 14px; margin-top: 34px; }
+  .tool { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px 16px; }
+  .tool .n { color: var(--orange); font-weight: 800; font-size: 13px; }
+  .tool .name { font-weight: 650; margin-top: 4px; font-size: 15px; }
+  .tool .cat { color: var(--muted); font-size: 12px; margin-top: 6px; letter-spacing: .3px; text-transform: uppercase; }
+  .note { text-align: center; color: var(--muted); font-size: 13px; font-style: italic; margin-top: 16px; }
+
+  /* steps */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 34px; }
+  .step { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 24px; text-align: center; }
+  .step .num { width: 40px; height: 40px; border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-weight: 800; background: rgba(30,140,255,.15); color: var(--blue); border: 1.5px solid var(--blue); }
+  .step h3 { font-size: 17px; margin-bottom: 6px; }
+  .step p { color: var(--muted); font-size: 14px; }
+
+  /* pricing */
+  .price-card { max-width: 420px; margin: 34px auto 0; background: linear-gradient(180deg, #13233b, #0d1a2e); border: 1.5px solid var(--orange); border-radius: 20px; padding: 34px 30px; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,.5); }
+  .price-card .plan { text-transform: uppercase; letter-spacing: 2px; font-size: 12px; color: var(--orange); font-weight: 700; }
+  .price-card .amount { font-size: 52px; font-weight: 850; margin-top: 10px; }
+  .price-card .amount span { font-size: 18px; color: var(--muted); font-weight: 600; }
+  .price-card .annual { color: var(--muted); font-size: 14px; margin-top: 6px; }
+  .plist { list-style: none; text-align: left; margin: 24px auto 0; max-width: 280px; }
+  .plist li { padding: 8px 0 8px 28px; position: relative; color: #d7e2f0; font-size: 15px; }
+  .plist li::before { content: "✓"; position: absolute; left: 0; color: var(--orange); font-weight: 800; }
+  .price-card .btn { margin-top: 26px; width: 100%; }
+  .price-card .fine { color: var(--muted); font-size: 12px; margin-top: 14px; }
+
+  /* faq */
+  .faq { max-width: 760px; margin: 34px auto 0; }
+  .qa { border-top: 1px solid var(--line); padding: 20px 0; }
+  .qa:last-child { border-bottom: 1px solid var(--line); }
+  .qa h4 { font-size: 16px; margin-bottom: 6px; }
+  .qa p { color: var(--muted); font-size: 15px; }
+
+  footer { text-align: center; padding: 46px 22px 60px; color: #7f8fa6; font-size: 13px; line-height: 2; border-top: 1px solid var(--line); margin-top: 20px; }
+  footer .brand .jay { color: var(--blue); font-weight: 800; }
+  footer .brand .smitt { color: var(--orange); font-weight: 800; }
+  footer a { color: var(--blue); text-decoration: none; font-weight: 600; }
+
+  @media (max-width: 720px) {
+    h1 { font-size: 38px; }
+    .steps { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brandmark"><span class="jay">Jay</span><span class="smitt">Smitt</span> Labs</div>
+      <a class="back" href="/">&larr; JaySmitt Labs home</a>
+    </div>
+
+    <!-- HERO -->
+    <div class="hero">
+      <img src="subdivision_toolkit_hero.png" alt="JaySmitt Labs Subdivision Toolkit — 20 powerful subdivision layout tools, built for AutoCAD">
+      <div class="kicker">Built for AutoCAD</div>
+      <h1>Subdivision <span class="accent">Toolkit</span></h1>
+      <p class="lede">Twenty powerful layout tools that turn hours of civil subdivision drafting into a few clicks — built by a professional AutoCAD operator, for professional AutoCAD operators.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#pricing">Start your subscription</a>
+        <a class="btn btn-ghost" href="#tools">Explore the tools</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <section class="intro">
+    <div class="wrap">
+      <p>The Subdivision Toolkit is a LISP add-in that plugs straight into AutoCAD and automates the repetitive, error-prone parts of subdivision layout — lotting, road centerlines, setbacks, labeling, and sheet output. It was hand-built by Stephen Smith over years of real civil work, so every command does exactly what a drafter actually needs, the way they'd actually do it.</p>
+    </div>
+  </section>
+
+  <!-- TOOLS -->
+  <section id="tools">
+    <div class="wrap">
+      <div class="section-title">20 tools, one toolkit</div>
+      <div class="section-sub">Everything the subdivision workflow needs, in one loadable add-in.</div>
+      <!-- PLACEHOLDER TOOL NAMES — Smitt to replace with the real 20 command names/descriptions -->
+      <div class="grid">
+        <div class="tool"><div class="n">01</div><div class="name">Auto Lot Layout</div><div class="cat">Lots &amp; Parcels</div></div>
+        <div class="tool"><div class="n">02</div><div class="name">Lot Area Calculator</div><div class="cat">Lots &amp; Parcels</div></div>
+        <div class="tool"><div class="n">03</div><div class="name">Frontage Divider</div><div class="cat">Lots &amp; Parcels</div></div>
+        <div class="tool"><div class="n">04</div><div class="name">Setback Generator</div><div class="cat">Lots &amp; Parcels</div></div>
+        <div class="tool"><div class="n">05</div><div class="name">Corner Lot Adjuster</div><div class="cat">Lots &amp; Parcels</div></div>
+        <div class="tool"><div class="n">06</div><div class="name">Centerline Creator</div><div class="cat">Roads &amp; Alignment</div></div>
+        <div class="tool"><div class="n">07</div><div class="name">Right-of-Way Offset</div><div class="cat">Roads &amp; Alignment</div></div>
+        <div class="tool"><div class="n">08</div><div class="name">Cul-de-sac Builder</div><div class="cat">Roads &amp; Alignment</div></div>
+        <div class="tool"><div class="n">09</div><div class="name">Curve &amp; Tangent Labeler</div><div class="cat">Roads &amp; Alignment</div></div>
+        <div class="tool"><div class="n">10</div><div class="name">Station Marker</div><div class="cat">Roads &amp; Alignment</div></div>
+        <div class="tool"><div class="n">11</div><div class="name">Easement Drafter</div><div class="cat">Grading &amp; Utilities</div></div>
+        <div class="tool"><div class="n">12</div><div class="name">Utility Layout Assistant</div><div class="cat">Grading &amp; Utilities</div></div>
+        <div class="tool"><div class="n">13</div><div class="name">Drainage Arrow Tool</div><div class="cat">Grading &amp; Utilities</div></div>
+        <div class="tool"><div class="n">14</div><div class="name">Contour Labeler</div><div class="cat">Grading &amp; Utilities</div></div>
+        <div class="tool"><div class="n">15</div><div class="name">Auto Lot Numbering</div><div class="cat">Annotation &amp; Output</div></div>
+        <div class="tool"><div class="n">16</div><div class="name">Bearing &amp; Distance Labeler</div><div class="cat">Annotation &amp; Output</div></div>
+        <div class="tool"><div class="n">17</div><div class="name">Legal Description Generator</div><div class="cat">Annotation &amp; Output</div></div>
+        <div class="tool"><div class="n">18</div><div class="name">Area Table Builder</div><div class="cat">Annotation &amp; Output</div></div>
+        <div class="tool"><div class="n">19</div><div class="name">Sheet Setup Automator</div><div class="cat">Annotation &amp; Output</div></div>
+        <div class="tool"><div class="n">20</div><div class="name">Batch Plot Helper</div><div class="cat">Annotation &amp; Output</div></div>
+      </div>
+      <p class="note">Sample tool names shown for layout — Stephen to finalize the real 20 command names and one-line descriptions.</p>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section>
+    <div class="wrap">
+      <div class="section-title">Up and running in minutes</div>
+      <div class="steps">
+        <div class="step"><div class="num">1</div><h3>Subscribe</h3><p>Choose a plan and check out. You'll get your download and a personal license key by email.</p></div>
+        <div class="step"><div class="num">2</div><h3>Install</h3><p>Load the toolkit into AutoCAD once. It adds all 20 commands to your workspace.</p></div>
+        <div class="step"><div class="num">3</div><h3>Activate &amp; draw</h3><p>Enter your key to activate. Your subscription keeps the toolkit unlocked and updated.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="wrap">
+      <div class="section-title">Simple subscription</div>
+      <div class="section-sub">One plan. Every tool. Cancel anytime.</div>
+      <!-- PLACEHOLDER PRICE — set the real monthly/annual price before launch -->
+      <div class="price-card">
+        <div class="plan">Subdivision Toolkit — Pro</div>
+        <div class="amount">$29<span>/month</span></div>
+        <div class="annual">or $290/year — two months free</div>
+        <ul class="plist">
+          <li>All 20 subdivision tools</li>
+          <li>Free updates &amp; new tools</li>
+          <li>Email support from the builder</li>
+          <li>Use on your work machine</li>
+          <li>Cancel anytime</li>
+        </ul>
+        <!-- PLACEHOLDER CHECKOUT — wire this to your Paddle / Lemon Squeezy / Stripe checkout link -->
+        <a class="btn btn-primary" href="mailto:support@jaysmittlabs.com?subject=Subdivision%20Toolkit%20subscription">Get the toolkit</a>
+        <div class="fine">Prices shown are placeholders for review. Secure checkout coming soon.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="wrap">
+      <div class="section-title">Questions</div>
+      <div class="faq">
+        <div class="qa"><h4>What versions of AutoCAD does it work with?</h4><p>The toolkit runs on AutoCAD for Windows. [Confirm the exact supported versions — e.g. AutoCAD 20XX and newer, and whether AutoCAD LT is supported.]</p></div>
+        <div class="qa"><h4>How does the license work?</h4><p>Your subscription comes with a license key that activates the toolkit on your machine. As long as your subscription is active, every tool stays unlocked and you get updates. If you cancel, the tools simply stop loading.</p></div>
+        <div class="qa"><h4>Is it a one-time purchase?</h4><p>It's a subscription so we can keep improving the tools and add new ones over time. You can cancel whenever you like and keep using it through the end of your billing period.</p></div>
+        <div class="qa"><h4>Can I get a refund or a trial?</h4><p>[Decide your trial/refund policy — e.g. a free trial period or a 14-day money-back guarantee — and state it here.]</p></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="brand"><span class="jay">Jay</span><span class="smitt">Smitt</span> Labs</span> — Jason Berard &amp; Stephen Smith<br>
+    Questions: <a href="mailto:support@jaysmittlabs.com">support@jaysmittlabs.com</a><br>
+    <a href="/">JaySmitt Labs home</a>
+  </footer>
+</body>
+</html>
