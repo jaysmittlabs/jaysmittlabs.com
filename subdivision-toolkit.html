@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Subdivision Toolkit for AutoCAD — JaySmitt Labs</title>
-<meta name="description" content="Subdivision Toolkit by JaySmitt Labs — 20 powerful subdivision layout tools built for AutoCAD by a professional civil operator. Automate lot layout, road centerlines, labeling, and more.">
+<meta name="description" content="Subdivision Toolkit by JaySmitt Labs — 27 powerful subdivision layout tools built for AutoCAD by a professional civil operator. Automate lot layout, road centerlines, labeling, and more.">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   :root {
@@ -62,6 +62,7 @@
   .tool { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px 16px; }
   .tool .n { color: var(--orange); font-weight: 800; font-size: 13px; }
   .tool .name { font-weight: 650; margin-top: 4px; font-size: 15px; }
+  .tool .desc { color: #cdd8e8; font-size: 12.5px; margin-top: 6px; line-height: 1.45; }
   .tool .cat { color: var(--muted); font-size: 12px; margin-top: 6px; letter-spacing: .3px; text-transform: uppercase; }
   .note { text-align: center; color: var(--muted); font-size: 13px; font-style: italic; margin-top: 16px; }
 
@@ -111,12 +112,12 @@
 
     <!-- HERO -->
     <div class="hero">
-      <img src="subdivision_toolkit_hero.png" alt="JaySmitt Labs Subdivision Toolkit — 20 powerful subdivision layout tools, built for AutoCAD">
+      <img src="subdivision_toolkit_hero.png" alt="JaySmitt Labs Subdivision Toolkit — 27 powerful subdivision layout tools, built for AutoCAD">
       <div class="kicker">Built for AutoCAD</div>
       <h1>Subdivision <span class="accent">Toolkit</span></h1>
-      <p class="lede">Twenty powerful layout tools that turn hours of civil subdivision drafting into a few clicks — built by a professional AutoCAD operator, for professional AutoCAD operators.</p>
+      <p class="lede">Twenty-seven powerful layout tools that turn hours of civil subdivision drafting into a few clicks — built by a professional AutoCAD operator, for professional AutoCAD operators.</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="#pricing">Start your subscription</a>
+        <a class="btn btn-primary" href="#pricing">Get it Now</a>
         <a class="btn btn-ghost" href="#tools">Explore the tools</a>
       </div>
     </div>
@@ -132,32 +133,35 @@
   <!-- TOOLS -->
   <section id="tools">
     <div class="wrap">
-      <div class="section-title">20 tools, one toolkit</div>
+      <div class="section-title">27 tools, one toolkit</div>
       <div class="section-sub">Everything the subdivision workflow needs, in one loadable add-in.</div>
-      <!-- PLACEHOLDER TOOL NAMES — Smitt to replace with the real 20 command names/descriptions -->
       <div class="grid">
-        <div class="tool"><div class="n">01</div><div class="name">Auto Lot Layout</div><div class="cat">Lots &amp; Parcels</div></div>
-        <div class="tool"><div class="n">02</div><div class="name">Lot Area Calculator</div><div class="cat">Lots &amp; Parcels</div></div>
-        <div class="tool"><div class="n">03</div><div class="name">Frontage Divider</div><div class="cat">Lots &amp; Parcels</div></div>
-        <div class="tool"><div class="n">04</div><div class="name">Setback Generator</div><div class="cat">Lots &amp; Parcels</div></div>
-        <div class="tool"><div class="n">05</div><div class="name">Corner Lot Adjuster</div><div class="cat">Lots &amp; Parcels</div></div>
-        <div class="tool"><div class="n">06</div><div class="name">Centerline Creator</div><div class="cat">Roads &amp; Alignment</div></div>
-        <div class="tool"><div class="n">07</div><div class="name">Right-of-Way Offset</div><div class="cat">Roads &amp; Alignment</div></div>
-        <div class="tool"><div class="n">08</div><div class="name">Cul-de-sac Builder</div><div class="cat">Roads &amp; Alignment</div></div>
-        <div class="tool"><div class="n">09</div><div class="name">Curve &amp; Tangent Labeler</div><div class="cat">Roads &amp; Alignment</div></div>
-        <div class="tool"><div class="n">10</div><div class="name">Station Marker</div><div class="cat">Roads &amp; Alignment</div></div>
-        <div class="tool"><div class="n">11</div><div class="name">Easement Drafter</div><div class="cat">Grading &amp; Utilities</div></div>
-        <div class="tool"><div class="n">12</div><div class="name">Utility Layout Assistant</div><div class="cat">Grading &amp; Utilities</div></div>
-        <div class="tool"><div class="n">13</div><div class="name">Drainage Arrow Tool</div><div class="cat">Grading &amp; Utilities</div></div>
-        <div class="tool"><div class="n">14</div><div class="name">Contour Labeler</div><div class="cat">Grading &amp; Utilities</div></div>
-        <div class="tool"><div class="n">15</div><div class="name">Auto Lot Numbering</div><div class="cat">Annotation &amp; Output</div></div>
-        <div class="tool"><div class="n">16</div><div class="name">Bearing &amp; Distance Labeler</div><div class="cat">Annotation &amp; Output</div></div>
-        <div class="tool"><div class="n">17</div><div class="name">Legal Description Generator</div><div class="cat">Annotation &amp; Output</div></div>
-        <div class="tool"><div class="n">18</div><div class="name">Area Table Builder</div><div class="cat">Annotation &amp; Output</div></div>
-        <div class="tool"><div class="n">19</div><div class="name">Sheet Setup Automator</div><div class="cat">Annotation &amp; Output</div></div>
-        <div class="tool"><div class="n">20</div><div class="name">Batch Plot Helper</div><div class="cat">Annotation &amp; Output</div></div>
+        <div class="tool"><div class="n">01</div><div class="name">PerimeterRoad</div><div class="desc">Draws the complete road around your parcel boundary.</div><div class="cat">Roads &amp; Alignment</div></div>
+        <div class="tool"><div class="n">02</div><div class="name">CrossRoads</div><div class="desc">Fills the interior with a street grid at block spacing.</div><div class="cat">Roads &amp; Alignment</div></div>
+        <div class="tool"><div class="n">03</div><div class="name">CrossRoadsRad</div><div class="desc">Radial version of CrossRoads — streets fan from a focus point.</div><div class="cat">Roads &amp; Alignment</div></div>
+        <div class="tool"><div class="n">04</div><div class="name">DrawRoad</div><div class="desc">One road between two clicks; tees into a street where the click lands.</div><div class="cat">Roads &amp; Alignment</div></div>
+        <div class="tool"><div class="n">05</div><div class="name">DrawThruRoad</div><div class="desc">One road through multiple streets — 4-way at each crossing, tees at the ends.</div><div class="cat">Roads &amp; Alignment</div></div>
+        <div class="tool"><div class="n">06</div><div class="name">Knuckle</div><div class="desc">Outside-corner bulb at a street corner (radius auto = ROW width).</div><div class="cat">Roads &amp; Alignment</div></div>
+        <div class="tool"><div class="n">07</div><div class="name">Culdesac</div><div class="desc">End-of-street bulb (radius auto = ROW width).</div><div class="cat">Roads &amp; Alignment</div></div>
+        <div class="tool"><div class="n">08</div><div class="name">Elbow</div><div class="desc">Bends a street through a smooth curve at your Elbow CL radius.</div><div class="cat">Roads &amp; Alignment</div></div>
+        <div class="tool"><div class="n">09</div><div class="name">Boulevard</div><div class="desc">Divided road with capped median segments; 4-ways at crossings.</div><div class="cat">Roads &amp; Alignment</div></div>
+        <div class="tool"><div class="n">10</div><div class="name">RoundAbout</div><div class="desc">Ring road plus four approach roads, with crossings and tees.</div><div class="cat">Roads &amp; Alignment</div></div>
+        <div class="tool"><div class="n">11</div><div class="name">DrawRoadCircle</div><div class="desc">Full circle road from one radius, plus concentric rings at 2× lot depth.</div><div class="cat">Roads &amp; Alignment</div></div>
+        <div class="tool"><div class="n">12</div><div class="name">CurveRoad</div><div class="desc">Draws a curved road as concentric arcs.</div><div class="cat">Roads &amp; Alignment</div></div>
+        <div class="tool"><div class="n">13</div><div class="name">3-WayCross</div><div class="desc">Manually builds one tee intersection between existing streets.</div><div class="cat">Roads &amp; Alignment</div></div>
+        <div class="tool"><div class="n">14</div><div class="name">4-WayCross</div><div class="desc">Manually builds one full crossing between existing streets.</div><div class="cat">Roads &amp; Alignment</div></div>
+        <div class="tool"><div class="n">15</div><div class="name">ClearRoad</div><div class="desc">Removes a road cleanly for redrawing.</div><div class="cat">Roads &amp; Alignment</div></div>
+        <div class="tool"><div class="n">16</div><div class="name">Lots</div><div class="desc">The division engine — splits block frontages into lots at your lot width.</div><div class="cat">Lots &amp; Parcels</div></div>
+        <div class="tool"><div class="n">17</div><div class="name">LotsAcre</div><div class="desc">Divides frontage by target acreage instead of width.</div><div class="cat">Lots &amp; Parcels</div></div>
+        <div class="tool"><div class="n">18</div><div class="name">ArcLots</div><div class="desc">Divides lots along a curved (arc) frontage.</div><div class="cat">Lots &amp; Parcels</div></div>
+        <div class="tool"><div class="n">19</div><div class="name">ArcLotsAcre</div><div class="desc">Acreage division along an arc.</div><div class="cat">Lots &amp; Parcels</div></div>
+        <div class="tool"><div class="n">20</div><div class="name">LotDivide</div><div class="desc">Splits a single lot after the main division pass.</div><div class="cat">Lots &amp; Parcels</div></div>
+        <div class="tool"><div class="n">21</div><div class="name">Lot Numbers (IncArrayD)</div><div class="desc">Places incrementing lot numbers along a run.</div><div class="cat">Lots &amp; Parcels</div></div>
+        <div class="tool"><div class="n">22</div><div class="name">Total Lots</div><div class="desc">Counts the lots and reports the total.</div><div class="cat">Lots &amp; Parcels</div></div>
+        <div class="tool"><div class="n">23</div><div class="name">Distances</div><div class="desc">Labels segment lengths on selected lines.</div><div class="cat">Annotation</div></div>
+        <div class="tool"><div class="n">24</div><div class="name">Meets &amp; Bounds</div><div class="desc">Bearing-and-distance callouts along boundary or lot lines.</div><div class="cat">Annotation</div></div>
       </div>
-      <p class="note">Sample tool names shown for layout — Stephen to finalize the real 20 command names and one-line descriptions.</p>
+      <p class="note">Every command loads from a single AutoCAD add-in — no per-tool setup.</p>
     </div>
   </section>
 
@@ -166,9 +170,9 @@
     <div class="wrap">
       <div class="section-title">Up and running in minutes</div>
       <div class="steps">
-        <div class="step"><div class="num">1</div><h3>Subscribe</h3><p>Choose a plan and check out. You'll get your download and a personal license key by email.</p></div>
-        <div class="step"><div class="num">2</div><h3>Install</h3><p>Load the toolkit into AutoCAD once. It adds all 20 commands to your workspace.</p></div>
-        <div class="step"><div class="num">3</div><h3>Activate &amp; draw</h3><p>Enter your key to activate. Your subscription keeps the toolkit unlocked and updated.</p></div>
+        <div class="step"><div class="num">1</div><h3>Buy once</h3><p>Check out with a single payment. You'll get your download and a personal license key by email.</p></div>
+        <div class="step"><div class="num">2</div><h3>Install</h3><p>Load the toolkit into AutoCAD once. It adds every command to your workspace.</p></div>
+        <div class="step"><div class="num">3</div><h3>Activate &amp; draw</h3><p>Enter your key to activate. It's yours to keep — unlocked, with free updates.</p></div>
       </div>
     </div>
   </section>
@@ -176,23 +180,21 @@
   <!-- PRICING -->
   <section id="pricing">
     <div class="wrap">
-      <div class="section-title">Simple subscription</div>
-      <div class="section-sub">One plan. Every tool. Cancel anytime.</div>
-      <!-- PLACEHOLDER PRICE — set the real monthly/annual price before launch -->
+      <div class="section-title">One-time purchase</div>
+      <div class="section-sub">One price. Every tool. Yours to keep.</div>
       <div class="price-card">
-        <div class="plan">Subdivision Toolkit — Pro</div>
-        <div class="amount">$29<span>/month</span></div>
-        <div class="annual">or $290/year — two months free</div>
+        <div class="plan">Subdivision Toolkit</div>
+        <div class="amount">$79<span>&nbsp;one-time</span></div>
+        <div class="annual">One payment — no subscription, no recurring fees.</div>
         <ul class="plist">
-          <li>All 20 subdivision tools</li>
+          <li>Every subdivision tool included</li>
           <li>Free updates &amp; new tools</li>
           <li>Email support from the builder</li>
           <li>Use on your work machine</li>
-          <li>Cancel anytime</li>
+          <li>Yours to keep — no subscription</li>
         </ul>
-        <!-- PLACEHOLDER CHECKOUT — wire this to your Paddle / Lemon Squeezy / Stripe checkout link -->
-        <a class="btn btn-primary" href="mailto:support@jaysmittlabs.com?subject=Subdivision%20Toolkit%20subscription">Get the toolkit</a>
-        <div class="fine">Prices shown are placeholders for review. Secure checkout coming soon.</div>
+          <a class="btn btn-primary" href="mailto:support@jaysmittlabs.com?subject=Subdivision%20Toolkit%20-%20%2479%20one-time%20purchase">Get it Now</a>
+        <div class="fine">Secure online checkout is coming soon — for now, tap Get it Now to purchase by email.</div>
       </div>
     </div>
   </section>
@@ -203,8 +205,8 @@
       <div class="section-title">Questions</div>
       <div class="faq">
         <div class="qa"><h4>What versions of AutoCAD does it work with?</h4><p>The toolkit runs on AutoCAD for Windows. [Confirm the exact supported versions — e.g. AutoCAD 20XX and newer, and whether AutoCAD LT is supported.]</p></div>
-        <div class="qa"><h4>How does the license work?</h4><p>Your subscription comes with a license key that activates the toolkit on your machine. As long as your subscription is active, every tool stays unlocked and you get updates. If you cancel, the tools simply stop loading.</p></div>
-        <div class="qa"><h4>Is it a one-time purchase?</h4><p>It's a subscription so we can keep improving the tools and add new ones over time. You can cancel whenever you like and keep using it through the end of your billing period.</p></div>
+        <div class="qa"><h4>How does the license work?</h4><p>Your purchase comes with a license key that activates the toolkit on your machine. Once activated, every tool stays unlocked and you receive free updates — it's yours to keep.</p></div>
+        <div class="qa"><h4>Is it a one-time purchase?</h4><p>Yes. The Subdivision Toolkit is a one-time purchase of $79 — no subscription and no recurring fees. You own it, with free updates as we add and improve tools.</p></div>
         <div class="qa"><h4>Can I get a refund or a trial?</h4><p>[Decide your trial/refund policy — e.g. a free trial period or a 14-day money-back guarantee — and state it here.]</p></div>
       </div>
     </div>
