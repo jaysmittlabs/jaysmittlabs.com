@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Driftwood &amp; Bone — JaySmitt Labs</title>
+<meta name="description" content="Driftwood &amp; Bone by JaySmitt Labs. Wash ashore with nothing. Build a boat from what the tide leaves behind. A hand-painted island adventure with merge crafting, for iPhone and Android.">
+<meta property="og:title" content="Driftwood &amp; Bone">
+<meta property="og:description" content="Wash ashore with nothing. Build your way home. A hand-painted island adventure with merge crafting.">
+<meta property="og:image" content="https://jaysmittlabs.com/dab_icon.png">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --deep:   #0d1f26;   /* deep water */
+    --ink:    #071216;
+    --sand:   #E9D5AE;
+    --bone:   #F5EBD8;
+    --gold:   #D9A441;
+    --gold-2: #F0C46A;
+    --sea:    #2E93A8;
+    --muted:  #A9BCC2;
+    --card:   #10262f;
+    --line:   #1d3d49;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background:
+      radial-gradient(900px 520px at 50% -8%, #17414f 0%, var(--deep) 52%, var(--ink) 100%);
+    color: var(--bone);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 0 22px; }
+
+  /* top bar */
+  .topbar { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }
+  .brandmark { font-weight: 800; letter-spacing: .5px; font-size: 17px; text-decoration: none; }
+  .brandmark .jay { color: var(--sea); }
+  .brandmark .smitt { color: var(--gold); }
+  .topbar .back { font-size: 13px; color: var(--muted); text-decoration: none; }
+  .topbar .back:hover { color: var(--bone); }
+
+  /* hero */
+  .hero { display: grid; grid-template-columns: 1.05fr .95fr; gap: 46px; align-items: center; padding: 30px 0 20px; }
+  .hero .icon { width: 132px; height: 132px; border-radius: 28px; display: block; box-shadow: 0 16px 40px rgba(0,0,0,.55); }
+  .kicker { text-transform: uppercase; letter-spacing: 3px; font-size: 11.5px; font-weight: 700; color: var(--gold); margin-top: 22px; }
+  h1 { font-size: 54px; font-weight: 850; letter-spacing: -1.5px; line-height: 1.02; margin-top: 8px; }
+  h1 .accent { background: linear-gradient(90deg, var(--gold), var(--gold-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .tagline { font-size: 17px; font-style: italic; color: var(--sand); margin-top: 14px; }
+  .lede { font-size: 16.5px; color: var(--muted); margin-top: 16px; max-width: 30em; }
+  .shot { width: 100%; max-width: 330px; height: auto; border-radius: 20px; display: block; margin: 0 auto;
+          box-shadow: 0 22px 60px rgba(0,0,0,.6); border: 1px solid var(--line); }
+
+  /* store badges */
+  .badges { margin-top: 30px; display: flex; gap: 13px; flex-wrap: wrap; }
+  .badge {
+    display: inline-flex; flex-direction: column; align-items: flex-start;
+    padding: 12px 24px; border-radius: 13px; text-decoration: none;
+    background: linear-gradient(90deg, var(--gold), var(--gold-2)); color: #221803;
+    font-weight: 700; font-size: 15px; line-height: 1.25;
+    box-shadow: 0 10px 26px rgba(217,164,65,.3);
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .badge:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(217,164,65,.45); }
+  .badge small { font-size: 10.5px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; opacity: .72; }
+  /* the "not on the stores yet" state — swap the class, not the markup, on launch */
+  .badge.soon {
+    background: transparent; color: var(--muted);
+    border: 1.5px solid var(--line); box-shadow: none; cursor: default;
+  }
+  .badge.soon:hover { transform: none; box-shadow: none; }
+  .badge.soon small { color: var(--gold); opacity: 1; }
+  .storenote { margin-top: 14px; font-size: 13px; color: var(--muted); }
+
+  /* sections */
+  section { padding: 54px 0; }
+  .section-title { text-align: center; font-size: 30px; font-weight: 800; letter-spacing: -.5px; }
+  .section-sub { text-align: center; color: var(--muted); margin-top: 8px; font-size: 15px; }
+
+  .rule { height: 1px; background: linear-gradient(90deg, transparent, var(--line), transparent); }
+
+  /* feature grid */
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 34px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 22px; }
+  .card h3 { font-size: 17px; font-weight: 750; letter-spacing: -.2px; }
+  .card p { font-size: 14.5px; color: var(--muted); margin-top: 8px; }
+  .card .tag { font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+
+  /* the promise strip */
+  .promise { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 30px 28px; margin-top: 34px; }
+  .promise ul { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 26px; }
+  .promise li { position: relative; padding-left: 26px; font-size: 15px; color: #d9e4e7; }
+  .promise li::before { content: "◆"; position: absolute; left: 0; top: -1px; color: var(--gold); font-size: 12px; }
+
+  footer { text-align: center; padding: 46px 0 60px; font-size: 13px; color: #7e969d; line-height: 2; }
+  footer a { color: var(--sea); text-decoration: none; font-weight: 600; }
+  footer .brand .jay { color: var(--sea); }
+  footer .brand .smitt { color: var(--gold); }
+  footer .brand { font-weight: 800; }
+
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; gap: 30px; text-align: center; }
+    .hero .icon { margin: 0 auto; }
+    .lede { margin-left: auto; margin-right: auto; }
+    .badges { justify-content: center; }
+    .grid { grid-template-columns: 1fr; }
+    .promise ul { grid-template-columns: 1fr; }
+    h1 { font-size: 40px; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="brandmark" href="/"><span class="jay">Jay</span><span class="smitt">Smitt</span> Labs</a>
+      <a class="back" href="/">&larr; All products</a>
+    </div>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div>
+        <img class="icon" src="dab_icon.png" alt="Driftwood &amp; Bone app icon">
+        <div class="kicker">Island adventure &middot; iPhone &amp; Android</div>
+        <h1>Driftwood <span class="accent">&amp; Bone</span></h1>
+        <p class="tagline">"Wash ashore with nothing. Build your way home."</p>
+        <p class="lede">
+          The tide took your ship and left you a beach. Comb the shoreline, merge what you
+          scavenge into something that floats, and sail a hand-painted island one discovery
+          at a time &mdash; toward the skull that watches the whole horizon.
+        </p>
+
+        <div class="badges">
+          <!-- ON LAUNCH: delete class="badge soon" -> class="badge", and put the real store URL in href. -->
+          <a class="badge soon"><small>Coming soon to the</small>App&nbsp;Store</a>
+          <a class="badge soon"><small>Coming soon to</small>Google&nbsp;Play</a>
+        </div>
+        <p class="storenote">In testing now. <a href="mailto:support@jaysmittlabs.com?subject=Driftwood%20%26%20Bone%20-%20let%20me%20know%20when%20it%20launches" style="color:var(--sea);text-decoration:none;font-weight:600">Email us</a> and we'll tell you the day it lands.</p>
+      </div>
+      <img class="shot" src="dab_home.jpg" alt="The shore where Driftwood &amp; Bone begins — a wrecked ship, a rebuilt pier, and Skull Mountain on the horizon">
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="rule"></div>
+      <div class="grid">
+        <div class="card">
+          <div class="tag">Merge &amp; craft</div>
+          <h3>Build it out of wreckage</h3>
+          <p>Drag two pieces of salvage together and get something better. A pier, a hull, a sail, a map &mdash; every one of them merged out of what the sea gave back.</p>
+        </div>
+        <div class="card">
+          <div class="tag">Explore</div>
+          <h3>An island worth combing</h3>
+          <p>Painted screen by painted screen. Mushroom hollows, a looking pool, a witch's porch, a wall of recovered vessels. Wander off the path and the island rewards it.</p>
+        </div>
+        <div class="card">
+          <div class="tag">Puzzle</div>
+          <h3>Figured out, not handed over</h3>
+          <p>Locks, riddles and relics that expect you to work them out. No arrow dragging you to the answer &mdash; that's the whole point of a puzzle.</p>
+        </div>
+      </div>
+
+      <div class="promise">
+        <ul>
+          <li>Free to play, start to finish</li>
+          <li>No subscription &mdash; ever</li>
+          <li>Energy you can earn without paying</li>
+          <li>Remove ads once, if you'd rather</li>
+          <li>Plays offline, on your own time</li>
+          <li>Built by two people, not a studio</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="brand"><span class="jay">Jay</span><span class="smitt">Smitt</span> Labs</span> &mdash; Jason Berard &amp; Stephen Smith<br>
+    Questions: <a href="mailto:support@jaysmittlabs.com">support@jaysmittlabs.com</a><br>
+    <a href="/">JaySmitt Labs home</a> &nbsp;&middot;&nbsp; <a href="/mosaic.html">Mosaic</a> &nbsp;&middot;&nbsp; <a href="/subdivision-toolkit.html">Subdivision Toolkit</a>
+  </footer>
+</body>
+</html>
