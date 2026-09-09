@@ -101,7 +101,20 @@
   .tiles .lens { top: 50%; left: 50%; transform: translate(-50%,-50%); width: 32px; height: 32px;
                  background: #332E5C; border: 3px solid #fff; border-radius: 50%; }
   .product .thumb-toolkit   { background-image: url("card_toolkit.jpg"); }
-  .product .thumb-driftwood { background-image: url("card_driftwood.jpg"); }
+
+  /* Driftwood shows its app icon on a sea-to-sand wash, the way Mosaic shows its tiles. */
+  .product .thumb-driftwood {
+    background-image: linear-gradient(150deg, #10323d 0%, #1d6d7e 46%, #cdae83 100%);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .product .thumb .appicon {
+    width: 100px; height: 100px; border-radius: 22px; display: block;
+    box-shadow: 0 10px 26px rgba(0,0,0,.45);
+  }
+  /* WHEN GLITCH DELIVERS A SUBDIVISION TOOLKIT ICON: save it as toolkit_icon.png (1024 x 1024,
+     transparent rounded corners like the others), then give .thumb-toolkit the two rules above
+     instead of its background-image, and drop an <img class="appicon" src="toolkit_icon.png">
+     inside its span the way Driftwood does. card_toolkit.jpg can go at that point. */
 
   .product .body { padding: 20px 22px 24px; flex: 1; display: flex; flex-direction: column; }
   .product .tag { font-size: 10.5px; letter-spacing: 1.8px; text-transform: uppercase; font-weight: 700; color: var(--orange); }
@@ -208,7 +221,7 @@
         </a>
 
         <a class="product" href="/driftwoodandbone.html">
-          <span class="thumb thumb-driftwood"></span>
+          <span class="thumb thumb-driftwood"><img class="appicon" src="dab_icon.png" alt="Driftwood &amp; Bone app icon"></span>
           <span class="body">
             <span class="tag">iPhone &amp; Android</span>
             <h3>Driftwood &amp; Bone</h3>
